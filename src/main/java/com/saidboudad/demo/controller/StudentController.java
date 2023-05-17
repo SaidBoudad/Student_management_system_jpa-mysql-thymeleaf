@@ -14,16 +14,6 @@ public class StudentController {
         super();
         this.studentService = studentService;
     }
-    //new branch commit
-    //and another
-    //change from github
-
-    //method handler to handel list students and return model and view
-    @GetMapping(path = "/students",produces = {"application/xml"})
-    public String listStudents(Model model){
-        model.addAttribute("students",studentService.getAllStudents());
-        return "students";
-    }
 
     //method to create new student object
     @GetMapping("/students/new")
@@ -37,6 +27,13 @@ public class StudentController {
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.saveStudent(student);
         return "redirect:/students";
+    }
+
+    //method handler to handel list students and return model and view
+    @GetMapping(path = "/students",produces = {"application/xml"})
+    public String listStudents(Model model){
+        model.addAttribute("students",studentService.getAllStudents());
+        return "students";
     }
 
     @GetMapping("/students/edit/{id}")
