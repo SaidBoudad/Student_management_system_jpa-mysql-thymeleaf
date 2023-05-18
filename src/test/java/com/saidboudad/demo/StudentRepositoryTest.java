@@ -2,6 +2,7 @@ package com.saidboudad.demo;
 
 import com.saidboudad.demo.entity.Student;
 import com.saidboudad.demo.repository.StudentRepository;
+
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -41,6 +42,7 @@ public class StudentRepositoryTest {
                 .phoneNumber("00212633736058")
                 .build();
         studentRepository.save(student);
+
         log.info("this is the Id for the new student,{}",student.getId());
         assertNotNull(student.getId());
     }
